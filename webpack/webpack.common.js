@@ -7,12 +7,15 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: ['babel-loader', 'eslint-loader'],
       },
     ],
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],
+    alias: {
+      '@': path.resolve('src'),
+    },
   },
   output: {
     path: path.resolve('dist'),
