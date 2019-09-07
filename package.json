@@ -1,0 +1,62 @@
+{
+  "name": "firebase-study",
+  "version": "1.0.0",
+  "description": "Firebase study",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --open --config ./webpack/webpack.dev.js",
+    "build": "webpack --config ./webpack/webpack.prod.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:style": "stylelint ./src/*",
+    "lint": "eslint --ext .js src && npm run lint:style",
+    "lint:fix": "eslint --fix --ext .js src && npm run lint:style",
+    "lint-staged": "lint-staged",
+    "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx",
+    "prettier": "prettier --write ./src/*"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.9",
+    "react-dom": "^16.9",
+    "webpack": "^4.29.4",
+    "webpack-merge": "^4.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.3",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "react-hot-loader": "^4.6.5",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.1.14",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-babel": "^5.1.0",
+    "eslint-plugin-compat": "^2.6.2",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-markdown": "^1.0.0-beta.6",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "babel-eslint": "^10.0.1",
+    "cross-env": "^5.1.1",
+    "husky": "^1.1.2",
+    "lint-staged": "^7.2.0",
+    "prettier": "1.14.3",
+    "stylelint": "^9.4.0",
+    "stylelint-config-prettier": "^4.0.0",
+    "stylelint-config-standard": "^18.0.0"
+  },
+  "lint-staged": {
+    "**/*.less": "stylelint --syntax less",
+    "**/*.{js,jsx,tsx,ts,less,md,json}": "git add",
+    "**/*.{js,jsx}": "yarn lint-staged:js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint-staged"
+    }
+  }
+}
