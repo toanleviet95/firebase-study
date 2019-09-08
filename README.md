@@ -1,6 +1,5 @@
-# React sample code with Webpack
+# Firebase study
 [![Build Status][build-badge]][build]
-### This is my React starter kit in some my projects. Use webpack + babel
 
 <div align="center">
   <img src="https://webpack.js.org/d19378a95ebe6b15d5ddea281138dcf4.svg" width="10%" />
@@ -30,8 +29,27 @@ npm start // or yarn start
 npm run build // or yarn build
 ```
 
+### Send notification by request
+
+```
+POST: https://fcm.googleapis.com/fcm/send
+
+Header:
+Content-Type: application/json
+Authorization: key=SERVER_KEY
+
+Body:
+{
+  "notification": {
+      "title": "Firebase",
+      "body": "Toan is awesome",
+      "click_action": "http://localhost:8080/",
+      "icon": ""
+  },
+  "to": "USER_TOKEN"
+}
+```
+
 [babeljs]: https://babeljs.io
 [webpack]: https://webpack.js.org
 [react-hot-loader]: https://github.com/gaearon/react-hot-loader
-[build-badge]: https://travis-ci.com/toanleviet95/react-sample-with-webpack.svg?branch=master
-[build]: https://travis-ci.com/toanleviet95/react-sample-with-webpack

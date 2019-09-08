@@ -1,5 +1,6 @@
-.vscode
 node_modules
+dist/bundle.js
+.vscode
 .DS_Store
 npm-debug.log*
 yarn-error.log*
